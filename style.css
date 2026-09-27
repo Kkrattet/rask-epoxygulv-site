@@ -79,7 +79,7 @@ h2{font-size:clamp(40px,5vw,64px)}
 /* KONTAKT */
 .contact{background:var(--concrete);padding-block:100px}
 .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
-.contact h2{margin:14px 0 20px}
+.contact h2{margin:14px 0 20px;font-size:clamp(34px,3.8vw,50px);white-space:nowrap}
 .contact .phone{display:block;font-family:var(--display);font-weight:700;font-size:clamp(48px,6vw,76px);color:var(--rust);letter-spacing:.02em;line-height:1;margin:26px 0 18px;user-select:all}
 .contact dl{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:16px}
 .contact dt{font-family:var(--display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-size:14px;padding-top:2px}
@@ -101,6 +101,7 @@ footer img{height:54px;width:auto}
   .tgrid{grid-template-columns:1fr 1fr}
   .about .wrap,.contact .wrap{grid-template-columns:1fr;gap:44px}
   .types .head{flex-direction:column;align-items:start}
+  .contact h2{white-space:normal}
 }
 @media (max-width:600px){
   .wrap{padding-inline:18px}
@@ -177,7 +178,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* ---- om-side ---- */
 .bio{padding-block:110px}
 .bio .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:start;max-width:1120px}
-.bio .photo{aspect-ratio:4/5;background:url(img/dannie.jpg) center 30%/cover}
+.bio .photo{aspect-ratio:2/3;background:url(img/dannie-full.png) center/cover}
 .bio .big{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(40px,4.4vw,58px);line-height:.98;margin-bottom:28px}
 .bio p{color:var(--muted);margin-bottom:16px;max-width:540px}
 .bio .quote{border-left:3px solid var(--rust);padding:6px 0 6px 22px;margin:30px 0;color:var(--ink);font-size:19px;max-width:520px}
@@ -546,6 +547,7 @@ footer img{height:96px}
 .dd.open .dd-btn svg{transform:rotate(180deg)}
 .dd{position:relative}
 .dd-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translate(-50%,-6px);width:560px;display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px;background:#0F1B2D;border:1px solid rgba(243,245,248,.12);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:50}
+@media (hover:hover) and (min-width:901px){.dd::after{content:"";position:absolute;top:100%;left:50%;width:560px;height:14px;transform:translateX(-50%)}}
 .dd.open .dd-menu{opacity:1;visibility:visible;transform:translate(-50%,0)}
 .dd-menu a{display:grid;grid-template-columns:64px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;padding:10px;color:#F3F5F8;transition:background .2s}
 .dd-menu a:hover,.dd-menu a.on{background:#1A2A42}
@@ -648,3 +650,36 @@ body.nav-open .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 @media (max-width:980px){.ral,.grid4{grid-template-columns:repeat(2,1fr)}.grid5{grid-template-columns:repeat(3,1fr)}.two-box{grid-template-columns:1fr;gap:0}.sysbox-r{text-align:left}.std{flex-direction:column;align-items:flex-start;gap:10px}}
 @media (max-width:560px){.grid5{grid-template-columns:repeat(2,1fr)}.ph-card .cap i{display:none}.rc span{height:80px}}
 .vb .cap i{display:none}
+
+/* Opdateret knap- og karruselstil, afstemt med Krattet Entreprise */
+.btn{padding:11px 20px;border-radius:999px;font-size:15px;letter-spacing:.08em}
+.carousel{padding-inline:56px}
+.track{gap:28px}
+.card{flex-basis:calc((100% - 56px)/3)}
+.card .ph{aspect-ratio:3/2}
+.card .body{padding:26px 24px 30px;text-align:center}
+.card h3{font-size:20px;margin-bottom:8px}
+.arr.side{top:calc(50% - 60px);width:44px;height:44px;border-radius:50%;z-index:3}
+.link-more{font-size:15px;letter-spacing:.08em}
+.car-nav .dots{gap:10px}
+.car-nav{position:relative;justify-content:flex-end;min-height:24px}
+.car-nav .link-more{margin-left:auto}
+.car-nav .dots{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin-left:0}
+.car-nav .dots button{width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(243,245,248,.58);background:transparent;opacity:1}
+.sec.paper .car-nav .dots button:not(.on){border-color:rgba(15,27,45,.45)}
+.car-nav .dots button.on{opacity:1;background:var(--rust)}
+.sec.dark .car-nav .dots button.on{background:var(--rust-2)}
+@media (max-width:980px){.card{flex-basis:calc((100% - 28px)/2)}}
+@media (max-width:640px){
+  .carousel{padding-inline:0}
+  .track{gap:14px}
+  .card{flex-basis:84%}
+  .card .body{padding:24px 20px 26px}
+  .car-nav{align-items:flex-start;flex-wrap:wrap;gap:14px;margin-top:22px;padding-bottom:26px}
+  .car-nav .dots{top:auto;bottom:0;left:50%;transform:translateX(-50%)}
+  .link-more{font-size:13px;letter-spacing:.06em;line-height:1.4}
+}
+
+/* Menuen markeres med blå tekst i stedet for understregning */
+.topnav>a:after,.dd-btn:after{display:none}
+.topnav>a:hover,.dd-btn:hover,.topnav>a.on,.dd-btn.on,.dd.open .dd-btn{color:var(--rust-2)}
